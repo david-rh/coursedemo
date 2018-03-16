@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="patternfly.tableview.demo">
+<head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" type="text/css"
+	href="modules/patternfly/css/patternfly.min.css"/>
+<link rel="stylesheet" type="text/css"
+	href="modules/patternfly/css/patternfly-additions.min.css"/>
+	<link rel="stylesheet" type="text/css"
+	href="modules/angular-patternfly/styles/angular-patternfly.min.css"/>
+	<link rel="stylesheet" type="text/css"
+	href="modules/datatables.net-dt/css/jquery.dataTables.css"/>
+	
+	
+	
+	<script src="modules/patternfly/node_modules/jquery/dist/jquery.js"></script>
+        <script src="modules/patternfly/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="modules/patternfly/node_modules/bootstrap-select/dist/js/bootstrap-select.js"></script>
+        <script src="modules/angular-patternfly/node_modules/jquery-ui-dist/jquery-ui.js"></script>
+        <script src="modules/patternfly/node_modules/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="modules/patternfly/node_modules/datatables.net-select/js/dataTables.select.js"></script>
+        <script src="modules/patternfly/node_modules/moment/moment.js"></script>
+        <script src="modules/patternfly/node_modules/d3/d3.js"></script>
+        <script src="modules/patternfly/node_modules/c3/c3.js"></script>
+        <script src="modules/patternfly/js/patternfly-settings.js"></script>
+        <script src="modules/patternfly/js/patternfly-settings-colors.js"></script>
+        <script src="modules/patternfly/js/patternfly-settings-charts.js"></script>
+        <script src="modules/angular-patternfly/node_modules/angular/angular.js"></script>
+        <!-- <script src="angular-dragdrop.js"></script> -->
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-dragdrop.js"></script>
+        <script src="modules/angular-patternfly/node_modules/angularjs-datatables/dist/angular-datatables.js"></script>
+        <script src="modules/angular-patternfly/node_modules/angularjs-datatables/dist/plugins/select/angular-datatables.select.min.js"></script>
+        <script src="modules/angular-patternfly/node_modules/angular-sanitize/angular-sanitize.js"></script>
+        <script src="modules/angular-patternfly/node_modules/angular-animate/angular-animate.js"></script>
+        <script src="modules/angular-patternfly/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+        <!-- <script src="angular-bootstrap-prettify.js"></script> -->
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-bootstrap-prettify.js"></script>
+        <script src="modules/angular-patternfly/node_modules/lodash/lodash.min.js"></script>
+        <script src="modules/angular-patternfly/angular-patternfly.js"></script>
+        <script src="modules/angular-patternfly/node_modules/angularjs-datatables/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="modules/angular-patternfly/node_modules/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
+        
+        <script src="js/module.js"></script>
+        <script src="js/controller.js"></script>
+        <script src="js/service2.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-pf" role="navigation">
+     <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+      <a class="navbar-brand" href="/demo-school-ui">
+        <img src="node_modules/patternfly/dist/img/brand.svg" alt="Red Hat Demo School" />
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-utility">
+        <li>
+          <a href="#">Status</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="pficon pficon-user"></span>
+            David Anderson <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">Link</a>
+            </li>
+            <li>
+              <a href="#">Another link</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right navbar-primary" >
+        <li class="active">
+          <a href="#">Courses</a>
+        </li>
+        <li>
+          <a href="#">Another Link</a>
+        </li>
+      </ul>
+    </div>
+     
+  </nav>
+	<div class="container">
+
+
+		<!-- Just enjoy various PatternFly components -->
+		<div class="alert alert-success">
+			<span class="pficon pficon-ok"></span> <strong>Great job!</strong>
+			This is really working out <a href="#" class="alert-link">great
+				for us</a>.
+		</div>
+
+    <div ng-controller="TableCtrl" class="row example-container">
+      <div class="col-md-12" ng-if="showComponent">
+        <pf-table-view id="exampleTableView"
+              config="config"
+              empty-state-config="emptyStateConfig"
+              dt-options="dtOptions"
+              columns="columns"
+              items="items"
+              action-buttons="actionButtons"
+              menu-actions="menuActions"
+              empty-state-action-buttons="emptyStateActionButtons">
+        </pf-table-view>
+      </div>
+      <hr class="col-md-12">
+      <div class="col-md-12" style="padding-top: 12px;">
+        <div class="form-group">
+          <label class="checkbox-inline">
+            <input type="checkbox" ng-model="config.itemsAvailable">Items Available</input>
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-inline">
+            <input type="checkbox" ng-model="config.showCheckboxes" ng-change="addNewComponentToDOM()">Show Checkboxes</input>
+          </label>
+        </div>
+      </div>
+      <div class="col-md-12">
+            <div class="col-md-12" style="padding-top: 12px;">
+              <label style="font-weight:normal;vertical-align:center;">Events: </label>
+            </div>
+            <div class="col-md-12">
+              <textarea rows="10" class="col-md-12">{{eventText}}</textarea>
+            </div>
+      </div>
+      <script type="text/ng-template" id="status_template.html" /> 
+        <span ng-if="value === 'error'" class="pficon pficon-error-circle-o"></span>
+        <span ng-if="value === 'warning'" class="pficon pficon-warning-triangle-o"></span>
+        <span ng-if="value === 'ok'" class="pficon pficon-ok"></span>
+        {{value}}
+	</div>
+
+
+	
+		
+</body>
+</html>

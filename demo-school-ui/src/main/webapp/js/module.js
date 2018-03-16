@@ -1,0 +1,1 @@
+    angular.module('patternfly.tableview.demo', ['patternfly.views','patternfly.table']);

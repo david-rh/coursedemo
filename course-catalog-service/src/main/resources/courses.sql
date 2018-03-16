@@ -1,0 +1,1 @@
+insert into Course (name, number, credit_hours, description, version, id) values ('Foundations of Accounting', 'ACC2003', 3, 'A study of accounting', 1, 1);

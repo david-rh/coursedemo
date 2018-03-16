@@ -1,0 +1,76 @@
+    <!doctype html>
+    <html>
+      <head>
+      
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/jquery.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/bootstrap.min.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/bootstrap-select.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/jquery-ui.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/jquery.dataTables.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/dataTables.select.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/moment.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/d3.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/c3.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/patternfly-settings.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/patternfly-settings-colors.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/patternfly-settings-charts.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-dragdrop.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-datatables.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-datatables.select.min.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-sanitize.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-animate.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/ui-bootstrap-tpls.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-bootstrap-prettify.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/lodash.min.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-patternfly.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-ui-router.min.js"></script>
+        <script src="https://www.patternfly.org/angular-patternfly/grunt-scripts/angular-drag-and-drop-lists.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/module.js"></script>
+        <script src="js/samplecontroller.js"></script>
+        <script src="js/service.js"></script>
+      </head>
+      <body>
+        <div ng-app="patternfly.tableview.demo" ng-controller="TableCtrl" class="row example-container">
+          <div class="col-md-12" ng-if="showComponent">
+            <pf-table-view id="exampleTableView"
+                  config="config"
+                  empty-state-config="emptyStateConfig"
+                  dt-options="dtOptions"
+                  columns="columns"
+                  items="items"
+                  action-buttons="actionButtons"
+                  menu-actions="menuActions"
+                  empty-state-action-buttons="emptyStateActionButtons">
+            </pf-table-view>
+          </div>
+          <hr class="col-md-12">
+          <div class="col-md-12" style="padding-top: 12px;">
+            <div class="form-group">
+              <label class="checkbox-inline">
+                <input type="checkbox" ng-model="config.itemsAvailable">Items Available</input>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="checkbox-inline">
+                <input type="checkbox" ng-model="config.showCheckboxes" ng-change="addNewComponentToDOM()">Show Checkboxes</input>
+              </label>
+            </div>
+          </div>
+          <div class="col-md-12">
+                <div class="col-md-12" style="padding-top: 12px;">
+                  <label style="font-weight:normal;vertical-align:center;">Events: </label>
+                </div>
+                <div class="col-md-12">
+                  <textarea rows="10" class="col-md-12">{{eventText}}</textarea>
+                </div>
+          </div>
+          <script type="text/ng-template" id="status_template.html" ></script>
+            <span ng-if="value === 'error'" class="pficon pficon-error-circle-o"></span>
+            <span ng-if="value === 'warning'" class="pficon pficon-warning-triangle-o"></span>
+            <span ng-if="value === 'ok'" class="pficon pficon-ok"></span>
+            {{value}}
+          </div> 
+      </body>
+    </html>
