@@ -27,7 +27,7 @@ public class Course implements Serializable {
 	@Column(name = "version")
 	private int version;
 
-	@Column(length = 30, nullable = false)
+	@Column(length = 50, nullable = false)
 	private String name;
 
 	@Column(length = 10, nullable = false, unique = true)

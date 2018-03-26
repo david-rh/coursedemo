@@ -1,5 +1,0 @@
-insert into Course (name, number, credit_hours, description, version, id) values ('Foundations of Accounting', 'ACC2003', 3, 'A study of accounting', 1, 10001);
-insert into Course (name, number, credit_hours, description, version, id) values ('Linear Algebra', 'MTH2210', 3, 'Topics include vector spaces and matrix algebra, determinants, and reduction to canonical forms.', 1, 10002);
-insert into Course (name, number, credit_hours, description, version, id) values ('Introduction to Risk Management', 'FNC4430', 3, 'Develope an understanding of risk management processes including identification, analysis, measurement, and mitigation.', 1, 10003);
-insert into Course (name, number, credit_hours, description, version, id) values ('Calculus I', 'MTH1210', 4, 'An introduction to concepts of limit, derivatives, and mean value theorem.', 1, 10004);
-insert into Course (name, number, credit_hours, description, version, id) values ('Cellular Biology for Biomedical Engineering', 'BME3211', 4, 'Introduction to cell structure and function, energy conversions, protein sorting, signaling, cytoskeleton, cell adhesion, cell cycle, and mammalian genetics.', 1, 10005);
