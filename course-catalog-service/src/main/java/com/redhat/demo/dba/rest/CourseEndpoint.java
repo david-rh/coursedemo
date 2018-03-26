@@ -22,10 +22,13 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import com.redhat.demo.dba.coursecatalog.model.Course;
 
+import io.swagger.annotations.Api;
+
 /**
  * 
  */
 @Stateless
+@Api
 @Path("/courses")
 public class CourseEndpoint {
 	@PersistenceContext(unitName = "course-catalog-service-persistence-unit")
