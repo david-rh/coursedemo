@@ -2,7 +2,7 @@
      
       this.getItems = function() {
     	  
-    	  return $http.get("/course-catalog-service/rest/courses")
+    	  return $http.get("/course-catalog-service/api/courses")
     	  .then(function(response) {
               //First function handles success
               return response.data;

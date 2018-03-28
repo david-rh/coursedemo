@@ -122,7 +122,7 @@
             };
      
             (function init() {
-            	$http.get("/course-catalog-service/rest/courses")
+            	$http.get("/course-catalog-service/api/courses")
           	  .then(function(response) {
                     //First function handles success
                     $scope.items = response.data;
