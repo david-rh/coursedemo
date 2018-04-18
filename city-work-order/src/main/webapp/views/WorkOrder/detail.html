@@ -1,0 +1,63 @@
+<header ng-switch on="$location.path().indexOf('/WorkOrders/new') > -1">
+    <h3 ng-switch-when="true">Create a new WorkOrder</h3>
+    <h3 ng-switch-when="false">View or edit WorkOrder</h3>
+</header>
+<form id="WorkOrderForm" name="WorkOrderForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': WorkOrderForm.problemType.$invalid}">
+        <label for="problemType" class="col-sm-2 control-label">Problem Type</label>
+        <div id="problemTypeControls" class="col-sm-10">
+        <select id="problemType" name="problemType" class="form-control" ng-model="workOrder.problemType" ng-options="p for p in problemTypeList"  >
+            <option value="">Choose a Problem Type</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': WorkOrderForm.description.$invalid}">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div id="descriptionControls" class="col-sm-10">
+            <input id="description" name="description" type="text" class="form-control" ng-model="workOrder.description" placeholder="Enter the WorkOrder Description"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': WorkOrderForm.location.$invalid}">
+        <label for="location" class="col-sm-2 control-label">Location</label>
+        <div id="locationControls" class="col-sm-10">
+            <input id="location" name="location" type="text" required class="form-control" ng-model="workOrder.location" placeholder="Enter the WorkOrder Location"></input>
+            <span class="help-block error" ng-show="WorkOrderForm.location.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': WorkOrderForm.assignedTo.$invalid}">
+        <label for="assignedTo" class="col-sm-2 control-label">Assigned To</label>
+        <div id="assignedToControls" class="col-sm-10">
+            <input id="assignedTo" name="assignedTo" type="text" class="form-control" ng-model="workOrder.assignedTo" placeholder="Enter the WorkOrder Assigned To"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': WorkOrderForm.status.$invalid}">
+        <label for="status" class="col-sm-2 control-label">Status</label>
+        <div id="statusControls" class="col-sm-10">
+        <select id="status" name="status" class="form-control" ng-model="workOrder.status" ng-options="s for s in statusList"  >
+            <option value="">Choose a Status</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': WorkOrderForm.notes.$invalid}">
+        <label for="notes" class="col-sm-2 control-label">Notes</label>
+        <div id="notesControls" class="col-sm-10">
+            <input id="notes" name="notes" type="text" class="form-control" ng-model="workOrder.notes" placeholder="Enter the WorkOrder Notes"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveWorkOrder" name="saveWorkOrder" class="btn btn-primary" ng-disabled="isClean() || WorkOrderForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteWorkOrder" name="deleteWorkOrder" class="btn btn-danger" ng-show="workOrder.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

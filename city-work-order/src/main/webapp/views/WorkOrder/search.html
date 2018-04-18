@@ -1,0 +1,107 @@
+<div class="form-horizontal">
+    <h3>Create a new WorkOrder</h3>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <a id="Create" name="Create" class="btn btn-primary" href="#/WorkOrders/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3>Search for WorkOrders</h3>
+    <form id="WorkOrderSearch" class="form-horizontal">
+        
+
+    <div class="form-group">
+        <label for="problemType" class="col-sm-2 control-label">Problem Type</label>
+        <div class="col-sm-10">
+            <select id="problemType" name="problemType" class="form-control" ng-model="search.problemType" ng-options="p as p for p in problemTypeList">
+                <option value="">Choose a Problem Type</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+            <input id="description" name="description" class="form-control" type="text" ng-model="search.description" placeholder="Enter the WorkOrder Description"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="location" class="col-sm-2 control-label">Location</label>
+        <div class="col-sm-10">
+            <input id="location" name="location" class="form-control" type="text" ng-model="search.location" placeholder="Enter the WorkOrder Location"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="assignedTo" class="col-sm-2 control-label">Assigned To</label>
+        <div class="col-sm-10">
+            <input id="assignedTo" name="assignedTo" class="form-control" type="text" ng-model="search.assignedTo" placeholder="Enter the WorkOrder Assigned To"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="status" class="col-sm-2 control-label">Status</label>
+        <div class="col-sm-10">
+            <select id="status" name="status" class="form-control" ng-model="search.status" ng-options="s as s for s in statusList">
+                <option value="">Choose a Status</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="notes" class="col-sm-2 control-label">Notes</label>
+        <div class="col-sm-10">
+            <input id="notes" name="notes" class="form-control" type="text" ng-model="search.notes" placeholder="Enter the WorkOrder Notes"></input>
+        </div>
+    </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-search"></span> Search</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="search-results">
+        <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th>Problem Type</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Assigned To</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/WorkOrders/edit/{{result.id}}">{{result.problemType}}</a></td>
+                    <td><a href="#/WorkOrders/edit/{{result.id}}">{{result.description}}</a></td>
+                    <td><a href="#/WorkOrders/edit/{{result.id}}">{{result.location}}</a></td>
+                    <td><a href="#/WorkOrders/edit/{{result.id}}">{{result.assignedTo}}</a></td>
+                    <td><a href="#/WorkOrders/edit/{{result.id}}">{{result.status}}</a></td>
+                    <td><a href="#/WorkOrders/edit/{{result.id}}">{{result.notes}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="pagination pagination-centered">
+        <li ng-class="{disabled:currentPage == 0}">
+            <a id="prev" href ng-click="previous()">«</a>
+        </li>
+        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+            <a id="next" href ng-click="next()">»</a>
+        </li>
+    </ul>
+
+</div>
