@@ -22,10 +22,13 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import com.redhat.demo.dba.city.model.WorkOrder;
 
+import io.swagger.annotations.Api;
+
 /**
  * 
  */
 @Stateless
+@Api
 @Path("/workorders")
 public class WorkOrderEndpoint {
 	@PersistenceContext(unitName = "city-work-order-persistence-unit")

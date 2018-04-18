@@ -15,7 +15,7 @@ public class RestApplication extends Application {
 		beanConfig.setVersion("0.2");
 		beanConfig.setSchemes( new String[] {"http"});
 		beanConfig.setHost("localhost:8080");
-		beanConfig.setBasePath("course-catalog-service/api");
+		beanConfig.setBasePath("city-work-order/api");
 		beanConfig.setResourcePackage("com.redhat.demo.dba");
 		beanConfig.setScan(true);
 		beanConfig.setPrettyPrint(true);
